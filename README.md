@@ -55,9 +55,9 @@ The component allows you to create a responsive, customizable, mobile-friendly c
 With vue3-marquee-slider, you can easily create scrolling text or images that automatically move across the screen.
 You can control the speed, direction, and even pause or resume the marquee with simple props.
 
-### Installation and Global Usage Vue3
+### Installation and Usage Vue3
 
-To use vue3-marquee-slider in your Vue project, simply install it with npm or yarn:
+To use vue3-marquee-slider in your Vue3 project, simply install it with npm or yarn:
 * npm
   ```sh
   npm i vue3-marquee-slider@latest
@@ -68,20 +68,14 @@ To use vue3-marquee-slider in your Vue project, simply install it with npm or ya
   yarn add vue3-marquee-slider@latest
   ```
 
-In order to register a component globally, you would typically need to import the component in your main application file. This would allow you to use the component in any of your Vue templates, without having to import it separately in each individual component.
+### Component Usage
 
-```js
-import { createApp } from 'vue'
-import Vue3MarqueeSlider from 'vue3-marquee-slider';
-import 'vue3-marquee-slider/dist/style.css'
+Sometimes you will want to import the component separately in each individual component.
 
-createApp(App).use(Vue3MarqueeSlider).mount('#app')
-```
-
-Once you have registered the component, you can use it in any of your Vue templates by using the custom element syntax:
+This allows you to have more control over the component and tailor it specifically for each individual component's needs. Importing the component separately also allows for better organization and separation of concerns in your codebase.
 
 ```html
-<vue3-marquee-slider
+<marquee-slider
   id="marquee-slider"
   :speed="1000"
   :width="50"
@@ -91,13 +85,31 @@ Once you have registered the component, you can use it in any of your Vue templa
   <img src="https://app.imgforce.com/images/user/Igx_1670885749_vue-logo.png" />
   <img src="https://app.imgforce.com/images/user/TPs_1670885858_react-logo.png" />
   <img src="https://app.imgforce.com/images/user/jY4_1670885309_angular-logo.png" />
-</vue3-marquee-slider>
+</marquee-slider>
+```
+
+```js
+import { MarqueeSlider } from 'vue3-marquee-slider';
+import '../node_modules/vue3-marquee-slider/dist/style.css'
+
+export default {
+  components: {
+    MarqueeSlider
+  }
+}
+```
+
+or inside script tag with setup
+
+```js
+import { MarqueeSlider } from 'vue3-marquee-slider';
+import '../node_modules/vue3-marquee-slider/dist/style.css'
 ```
 
 With loop:
 
 ```html
-<vue3-marquee-slider
+<marquee-slider
   id="marquee-slider-loop"
   :speed="1000"
   :width="50"
@@ -107,7 +119,7 @@ With loop:
     :key="index"
     :src="image.url"
   />
-</vue3-marquee-slider>
+</marquee-slider>
 ```
 
 ```js
@@ -124,44 +136,6 @@ export default {
     }
   }
 }
-```
-
-### Component Usage
-
-Sometimes you will want to import the component separately in each individual component.
-
-This allows you to have more control over the component and tailor it specifically for each individual component's needs. Importing the component separately also allows for better organization and separation of concerns in your codebase.
-
-```html
-<vue3-marquee-slider
-  id="marquee-slider"
-  :speed="1000"
-  :width="50"
->
-  <img src="https://app.imgforce.com/images/user/zrC_1622176244_logo-black-120.png" />
-  <img src="https://app.imgforce.com/images/user/O1j_1670884991_js-logo.png" />
-  <img src="https://app.imgforce.com/images/user/Igx_1670885749_vue-logo.png" />
-  <img src="https://app.imgforce.com/images/user/TPs_1670885858_react-logo.png" />
-  <img src="https://app.imgforce.com/images/user/jY4_1670885309_angular-logo.png" />
-</vue3-marquee-slider>
-```
-
-```js
-import { Vue3MarqueeSlider } from 'vue3-marquee-slider'
-import 'vue3-marquee-slider/dist/style.css'
-
-export default {
-  components: {
-    Vue3MarqueeSlider,
-  }
-}
-```
-
-or inside script tag with setup
-
-```js
-import { Vue3MarqueeSlider } from 'vue3-marquee-slider'
-import 'vue3-marquee-slider/dist/style.css'
 ```
 
 ### Available props
@@ -187,7 +161,7 @@ These examples can help you understand the different features and options availa
 ### 👉 Basic sample with images
 
 ```html
-<vue3-marquee-slider
+<marquee-slider
   id="marquee-slider"
   :speed="15000"
 >
@@ -196,13 +170,13 @@ These examples can help you understand the different features and options availa
   <img src="https://app.imgforce.com/images/user/Igx_1670885749_vue-logo.png" />
   <img src="https://app.imgforce.com/images/user/TPs_1670885858_react-logo.png" />
   <img src="https://app.imgforce.com/images/user/jY4_1670885309_angular-logo.png" />
-</vue3-marquee-slider>
+</marquee-slider>
 ```
 
 ### 👉 With static width of the images
 
 ```html
-<vue3-marquee-slider
+<marquee-slider
   id="marquee-slider-width"
   :speed="10000"
   :width="50"
@@ -212,13 +186,13 @@ These examples can help you understand the different features and options availa
   <img src="https://app.imgforce.com/images/user/Igx_1670885749_vue-logo.png" />
   <img src="https://app.imgforce.com/images/user/TPs_1670885858_react-logo.png" />
   <img src="https://app.imgforce.com/images/user/jY4_1670885309_angular-logo.png" />
-</vue3-marquee-slider>
+</marquee-slider>
 ```
 
 ### 👉 Speed & Space between items
 
 ```html
-<vue3-marquee-slider
+<marquee-slider
   id="marquee-slider-space"
   :space="50"
   :speed="10000"
@@ -229,13 +203,13 @@ These examples can help you understand the different features and options availa
   <img src="https://app.imgforce.com/images/user/Igx_1670885749_vue-logo.png" />
   <img src="https://app.imgforce.com/images/user/TPs_1670885858_react-logo.png" />
   <img src="https://app.imgforce.com/images/user/jY4_1670885309_angular-logo.png" />
-</vue3-marquee-slider>
+</marquee-slider>
 ```
 
 ### 👉 Basic usage with text
 
 ```html
-<vue3-marquee-slider
+<marquee-slider
   id="marquee-slider-text"
   :space="150"
   :speed="10000"
@@ -245,13 +219,13 @@ These examples can help you understand the different features and options availa
   <span>Vue.js</span>
   <span>Nuxt.js</span>
   <span>vue3-marquee-slider</span>
-</vue3-marquee-slider>
+</marquee-slider>
 ```
 
 ### 👉 Cards inside vue3-marquee-slider
 
 ```html
-<vue3-marquee-slider
+<marquee-slider
   id="marquee-slider-cards"
   :space="50"
   :speed="12000"
@@ -260,13 +234,13 @@ These examples can help you understand the different features and options availa
   <div>Some Cards</div>
   <div>Some Cards</div>
   <div>Some Cards</div>
-</vue3-marquee-slider>
+</marquee-slider>
 ```
 
 ### 👉 Reversed direction
 
 ```html
-<vue3-marquee-slider
+<marquee-slider
   id="marquee-slider-reverse"
   :space="50"
   :speed="10000"
@@ -278,7 +252,7 @@ These examples can help you understand the different features and options availa
   <img src="https://app.imgforce.com/images/user/Igx_1670885749_vue-logo.png" />
   <img src="https://app.imgforce.com/images/user/TPs_1670885858_react-logo.png" />
   <img src="https://app.imgforce.com/images/user/jY4_1670885309_angular-logo.png" />
-</vue3-marquee-slider>
+</marquee-slider>
 ```
 
 ## Vue2 Version
