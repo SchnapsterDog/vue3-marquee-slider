@@ -1,13 +1,13 @@
 <script setup>
-import { MarqueeSlider } from "./components/";
+import { VueMarqueeSlider } from "./components/";
 </script>
 
 <template>
 	<div>
-		<marquee-slider>
+		<vue-marquee-slider>
 			<div>One</div>
 			<div>Two</div>
 			<div>Three</div>
-		</marquee-slider>
+		</vue-marquee-slider>
 	</div>
 </template>

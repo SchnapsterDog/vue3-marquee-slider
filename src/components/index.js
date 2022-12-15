@@ -1,3 +1,3 @@
 /* eslint-disable import/prefer-default-export */
 
-export { default as MarqueeSlider} from './MarqueeSlider.vue';
+export { default as VueMarqueeSlider} from './VueMarqueeSlider.vue';

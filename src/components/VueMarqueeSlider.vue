@@ -1,6 +1,5 @@
 <script setup>
 import { ref, computed, onMounted, useCssModule } from "vue";
-
 const props = defineProps({
 	autoWidth: {
 		type: Boolean,
