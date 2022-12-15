@@ -55,7 +55,7 @@ The component allows you to create a responsive, customizable, mobile-friendly c
 With vue3-marquee-slider, you can easily create scrolling text or images that automatically move across the screen.
 You can control the speed, direction, and even pause or resume the marquee with simple props.
 
-### Installation and Usage Vue3
+### Installation
 
 To use vue3-marquee-slider in your Vue3 project, simply install it with npm or yarn:
 * npm
@@ -68,7 +68,7 @@ To use vue3-marquee-slider in your Vue3 project, simply install it with npm or y
   yarn add vue3-marquee-slider@latest
   ```
 
-### Component Usage
+### Component Usage Vue3
 
 Sometimes you will want to import the component separately in each individual component.
 
