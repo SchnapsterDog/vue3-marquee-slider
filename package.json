@@ -1,0 +1,53 @@
+{
+  "name": "vue3-marquee-slider",
+  "description": "Simple and easy-to-use component for Vue that allows you to create customizable marquees with just a few lines of code",
+  "version": "1.0.0",
+  "private": false,
+  "homepage": "https://vue-marquee.com/",
+  "author": {
+    "name": "Oliver Trajceski",
+    "email": "oliver@akrinum.com"
+  },
+  "repository": "https://github.com/SchnapsterDog/vue3-marquee-slider",
+  "bugs": "https://github.com/SchnapsterDog/vue3-marquee-slider/issues",
+  "keywords": [
+    "marquee",
+    "slider",
+    "vue",
+    "vue3",
+    "vue.js",
+    "nuxt",
+    "nuxt.js",
+    "marquee-slider",
+    "vue-marquee-slider",
+    "vue3-marquee-slider"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue3-marquee-slider.umd.js",
+  "module": "./dist/vue3-marquee-slider.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue3-marquee-slider.es.js",
+      "require": "./dist/vue3-marquee-slider.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "vite": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}
