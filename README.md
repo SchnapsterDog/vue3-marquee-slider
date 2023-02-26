@@ -90,7 +90,7 @@ This allows you to have more control over the component and tailor it specifical
 
 ```js
 import { VueMarqueeSlider } from 'vue3-marquee-slider';
-import '../node_modules/vue3-marquee-slider/dist/style.css'
+import '@/node_modules/vue3-marquee-slider/dist/style.css'
 
 export default {
   components: {
@@ -103,7 +103,7 @@ or inside script tag with setup
 
 ```js
 import { VueMarqueeSlider } from 'vue3-marquee-slider';
-import '../node_modules/vue3-marquee-slider/dist/style.css'
+import '@/node_modules/vue3-marquee-slider/dist/style.css'
 ```
 
 With loop:
