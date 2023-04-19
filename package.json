@@ -1,7 +1,7 @@
 {
   "name": "vue3-marquee-slider",
   "description": "Simple and easy-to-use component for Vue that allows you to create customizable marquees with just a few lines of code",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": false,
   "homepage": "https://vue-marquee.com/",
   "author": {
