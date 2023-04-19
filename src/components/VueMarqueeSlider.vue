@@ -7,6 +7,12 @@ const props = defineProps({
       return false;
     },
   },
+  height: {
+    type: Number,
+    default: () => {
+      return 200;
+    }
+  },
   id: {
     type: String,
     required: true,
@@ -44,6 +50,12 @@ const props = defineProps({
       return 1500;
     },
   },
+  vertical: {
+    type: Boolean,
+    default: () => {
+      return false;
+    }
+  },
   width: {
     type: Number,
     default: () => {
@@ -65,6 +77,7 @@ const styleElement = computed(
       animation-duration: ${props.speed}ms;
       animation-direction: ${props.reverse ? "reverse" : "normal"};
       animation-play-state: ${props.paused ? "paused" : "running"};
+      height: ${props.vertical ? props.height : 'auto'}
     `
 );
 
@@ -115,7 +128,7 @@ function setItemsLength() {
 }
 
 function setItemSpace(index) {
-  items[index].style.marginRight = `${props.space}px`;
+  props.vertical ? items[index].style.marginBottom = `${props.space}px` : items[index].style.marginRight = `${props.space}px`;
 }
 
 function setItemWidth(index) {
@@ -128,24 +141,28 @@ function setImageObjectFit(index) {
 
 function setContainer() {
   container = document.querySelector(
-    `#${props.id} .${style.marqueeSliderContainer}`
+    `#${props.id} .${props.vertical ? style.marqueeSliderContainerVertical : style.marqueeSliderContainer}`
   );
 }
 
 function setContainerWidth() {
-  if (props.autoWidth) {
-    container.style.width = `${
-      itemsLength * (containerWidth / itemsLength + props.space)
-    }px`;
+  if (props.vertical) {
+    container.style.width = 'auto';
   } else {
-    container.style.width = `${itemsLength * (props.width + props.space)}px`;
+    if (props.autoWidth) {
+      container.style.width = `${
+        itemsLength * (containerWidth / itemsLength + props.space)
+      }px`;
+    } else {
+      container.style.width = `${itemsLength * (props.width + props.space)}px`;
+    }
   }
 }
 </script>
 
 <template>
   <div :id="id" :class="$style.marqueeSlider">
-    <div :class="$style.marqueeSliderContainer" :style="styleElement">
+    <div :class="vertical ? $style.marqueeSliderContainerVertical : $style.marqueeSliderContainer" :style="styleElement">
       <slot>
         <div>Hello</div>
         <div>From</div>
@@ -162,18 +179,36 @@ function setContainerWidth() {
 
 .marqueeSliderContainer {
   width: 100%;
-  animation-name: animation;
+  animation-name: horizontalAnimation;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   display: flex;
 }
 
-@keyframes animation {
+.marqueeSliderContainerVertical {
+  height: fit-content;
+  animation-name: verticalAnimation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes horizontalAnimation {
   0% {
     transform: translateX(0%);
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+
+@keyframes verticalAnimation {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
   }
 }
 </style>
